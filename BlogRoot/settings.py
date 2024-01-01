@@ -42,12 +42,18 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
 
     'rest_framework', #DRF
+    'rest_framework.authtoken',
     'corsheaders',
+    'dj_rest_auth',
 ]
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES":[
         "rest_framework.permissions.IsAuthenticated",
+    ],
+    "DEFAULT_AUTHETICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication", #powers the browsable API and ability to login and log out 
+        "rest_framework.authenticaiton.TokenAuthentication",
     ],
 }
 
