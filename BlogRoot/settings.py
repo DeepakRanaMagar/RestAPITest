@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',
 
-    'rest_framework', #DRF
+    'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
     'dj_rest_auth',
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'drf_spectacular',
 ]
 
 REST_FRAMEWORK = {
@@ -60,8 +61,14 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication", #powers the browsable API and ability to login and log out 
         "rest_framework.authenticaiton.TokenAuthentication",
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+SPECTACULAR_SETTINGS ={
+    "TITLE": "TEST BLOG API",
+    "DESCRIPTION": "Testing Django REST Framework with Example of a BlogSite.",
+    "VERSION": "1.0.0",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
